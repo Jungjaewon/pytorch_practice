@@ -190,7 +190,7 @@ if __name__ == '__main__':
     opt = torch.optim.SGD(model.parameters(), lr=0.01)
     loss_fn = nn.CrossEntropyLoss()
 
-    train_loss_list, validation_loss_list = fit(model, opt, loss_fn, train_dataloader, val_dataloader, 10)
+    train_loss_list, validation_loss_list = fit(model, opt, loss_fn, train_dataloader, val_dataloader, 20)
 
     plt.plot(train_loss_list, label = "Train loss")
     plt.plot(validation_loss_list, label = "Validation loss")
@@ -198,7 +198,7 @@ if __name__ == '__main__':
     plt.ylabel('Loss')
     plt.title('Loss vs Epoch')
     plt.legend()
-    plt.imsave(f'transformer_loss.jpg')
+    plt.savefig(f'transformer_loss.jpg')
 
     # Here we test some examples to observe how the model predicts
     examples = [
