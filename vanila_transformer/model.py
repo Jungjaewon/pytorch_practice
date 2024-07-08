@@ -65,7 +65,7 @@ class PositionalEncoding(nn.Module):
         pos_encoding[:, 1::2] = torch.cos(postions_list * division_term)
 
         pos_encoding = pos_encoding.unsqueeze(0).transpose(0, 1)
-        self.resgister_buffer("pos_encoding", pos_encoding)
+        self.register_buffer("pos_encoding", pos_encoding)
 
     def forward(self, token_embedding):
         return self.dropout(token_embedding + self.pos_encoding[:token_embedding.size(0), :])
