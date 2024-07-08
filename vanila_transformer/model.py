@@ -21,6 +21,7 @@ class Transformer(nn.Module):
             num_decoder_layers=num_decoder_layers,
             dropout=dropout_p,
         )
+        self.out = nn.Linear(dim_model, num_tokens)
 
     def forward(self, src, tgt, tgt_mask=None, src_pad_mask=None, tgt_pad_mask=None):
         # src, Tgt size -> (batch_size, src sequence length)
